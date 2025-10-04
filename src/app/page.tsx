@@ -15,7 +15,6 @@ const sampleMessages: Message[] = [
 export default function Home(){
   const [messages, setMessages] = useState<Message[]>(sampleMessages);
   const [input, setInput] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isTyping, setIsTyping] = useState<boolean>(false)
 
@@ -36,7 +35,6 @@ export default function Home(){
     ];
     setMessages(newMessages);
     setInput("");
-    setLoading(true)
     setIsTyping(true)
 
     try {
@@ -60,7 +58,6 @@ export default function Home(){
         { role: "assistant", "content": "Something went wrong"},
       ])
     } finally {
-      setLoading(false);
       setIsTyping(false)
     }
     
