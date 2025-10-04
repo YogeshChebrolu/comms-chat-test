@@ -1,8 +1,19 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import * as fs from "fs";
+import * as path from "path";
 
-export const promptFromFileV1 = readFileSync(join(process.cwd(), "src/app/lib/sysv1.md"), "utf-8")
+// export const promptFromFileV1 = fs.readFileSync(path.join(process.cwd(), "src/app/lib/sysv1.md"), "utf-8")
+
+const directoryPath = path.join(process.cwd(), "src/app/lib/prompts")
+
+try {
+    const files = fs.readdirSync(directoryPath);
+    console.log(`BaseName for ${files[0]}: ${path.basename(files[0])}`)
+    console.log("Files in directory:", files);
+} catch (error){
+    console.error("Error reading directory:", error);
+}
  
+/*
 export const sysP1 = `
 You are Miko, and you were developed by Kairos Computer, a San Franciso Based AI-Startup. You interact with users through text messages via SMS, Messenger, Slack and Email and have access to wide range of tools.
 
@@ -132,3 +143,4 @@ Even when calling tools, you should never break character when speaking to the u
 export const sysP2 = `
 You r communication agent part of KAIROS and u face user and answer his questions.
 `
+*/

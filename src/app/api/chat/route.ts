@@ -1,7 +1,7 @@
 import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
 import { NextResponse } from "next/server";
-import { sysP1, promptFromFileV1 } from "@/app/lib/sys_prompts";
+// import { sysP1 } from "@/app/lib/sys_prompts";
 
 export async function POST(req : Request){
   try {
@@ -11,7 +11,7 @@ export async function POST(req : Request){
     const response = await generateText({
       model: openai("gpt-4"),
       messages: messages,
-      system: promptFromFileV1
+      // system: promptFromFileV1
     })
     
     console.log(response.text)
