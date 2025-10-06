@@ -55,7 +55,6 @@ export default function PromptSideBar({
     <aside className="w-80 bg-slate-900 text-slate-100 border-r border-slate-800 p-2">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-semibold">System Prompts</h3>
-        <Badge>Local</Badge>
       </div>
       
       <div className="text-sm text-slate-300 mb-3">

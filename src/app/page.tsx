@@ -3,6 +3,8 @@
 import {useState, useRef, useEffect} from "react";
 import PromptSideBar from "@/components/PromptsSideBar";
 import PromptPreviewDialog from "@/components/PromptPreviewDialog";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type role = "user" | "assistant" | "system";
 
@@ -113,10 +115,11 @@ export default function Home(){
                     ? "bg-blue-500 text-white rounded-br-none"
                     : msg.role === "assistant"
                     ? "bg-gray-200 text-gray-900 rounded-bl-none"
-                    : "bg-yellow-100 text-gray-900 border-l-4 border-yellow-400"
+                    : "bg-pink-200 text-gray-900 border-l-4 "
                 }`}
               >
-                {msg.content}
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{(msg.content.slice(0, 20000)).concat("...")}</ReactMarkdown>
+                {/* {msg.content} */}
               </div>
             </div>
           ))}
